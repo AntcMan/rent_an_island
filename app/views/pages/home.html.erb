@@ -1,18 +1,40 @@
-
 <div class="container">
-  <div class="">
-    <div class="navbar">
-    "hello navbar"
-    </div>
+  <div class="navbar"></div>
 
-    <div class="grid">
-    "hello grid display"
-    </div>
-
-    <div class="footer">
-    "hello footer"
-    </div>
+  <div class="row">
+        <!-- Repeat the below column code for each listing -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+          <div class="card-img-top position-relative">
+            <div class="bookmark">Bookmark</div>
+          </div>
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span class="location">Location</span>
+              <span class="rating">Rating</span>
+            </div>
+            <h5 class="card-title mb-2">Name</h5>
+            <p class="card-text mb-2">Availability</p>
+            <h6 class="card-subtitle mb-0 font-weight-bold">$Price</h6>
+          </div>
+        </div>
+      </div>
+        <!-- End of repeated column code -->
   </div>
-</div>
 
-<%= button_to "sign out", destroy_user_session_path, method: :delete, class: "btn btn-warning" %>
+  <footer class="bg-light mt-5">
+    <div class="container py-4">
+      <div class="row">
+        <div class="col-md-4">
+          <h4>About Us</h4>
+          <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div>
+    <%= button_to "sign out", destroy_user_session_path, method: :delete, class: "btn btn-warning" %>
+  </div>
+
+</div>

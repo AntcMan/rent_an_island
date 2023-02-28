@@ -12,8 +12,6 @@ class IslandsController < ApplicationController
     end
   end
 
-  end
-
   def edit
     @island = Island.find(params[:id])
   end
@@ -22,12 +20,13 @@ class IslandsController < ApplicationController
     @island = Island.find(params[:id])
   end
 
+  # ADD EDIT ACTION
+
   private
 
   def island_params
     params.required(:island).permit(:name, :capacity, :description, :price, :location, :availability, :photo)
   end
-
 end
 
 # create migration adding "photo" to island table - DONE

@@ -6,7 +6,7 @@ class IslandsController < ApplicationController
   def create
     @island = Island.new(island_params)
     if @island.save
-      redirect_to island_show_path
+      redirect_to island_path(@island)
     else
       render :new
     end
@@ -20,7 +20,11 @@ class IslandsController < ApplicationController
     @island = Island.find(params[:id])
   end
 
-  # ADD EDIT ACTION
+  def update
+    @island = Island.find(params[:id])
+    @island.update(island_params)
+    redirect_to island_path(@island)
+  end
 
   private
 

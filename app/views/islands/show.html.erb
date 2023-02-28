@@ -1,2 +1,16 @@
-<h1>Islands#show</h1>
-<p>Find me in app/views/islands/show.html.erb</p>
+<div class="container">
+  <h1><%= @island.name %></h1>
+  <h3><%= @island.location %></h3>
+
+    <%= @island.photo %>
+  <%# <H2>Private island for rent by Tan</H2> + TAN'S AVATAR (CREATE CSS AVATAR COMPONENT) %>
+
+  <p><%= @island.description %></p>
+  <p><%= @island.price %></p>
+  <p><%= @island.capacity %></p>
+  <p><%= @island.availability %></p>
+
+  <p><%= link_to "view all islands", islands_path, class: 'btn btn-primary' %></p>
+</div>
+
+<%= link_to "Edit your listing", island_path, class: 'btn btn-warning' %>

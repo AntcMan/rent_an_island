@@ -1,0 +1,10 @@
+<%= simple_form_for [@island] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :location %>
+  <%= f.input :description %>
+  <%= f.input :capacity %>
+  <%= f.input :price %>
+  <%= f.input :availability %>
+  <%= f.input :photo, as: :file%>
+  <%= f.submit "Add island", class: "btn btn-primary" %>
+<% end %>

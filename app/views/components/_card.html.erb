@@ -1,5 +1,8 @@
 <div class="card h-100" style="width: 16rem; margin: 10px;">
   <div class="card-img-top position-relative">
+   <% if island.photo.attached? %>
+   <%= cl_image_tag island.photo.key, width: 300, height: 200, crop: :fill %>
+   <% end %>
     <div class="bookmark">Bookmark</div>
   </div>
   <div class="card-body">

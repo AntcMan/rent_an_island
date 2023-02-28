@@ -2,7 +2,10 @@
   <h1><%= @island.name %></h1>
   <h3><%= @island.location %></h3>
 
-    <%= @island.photo %>
+  <%= cl_image_tag @island.photo.key, height: 300, crop: :fill %>
+  <% if @island.photo.attached? %>
+  <% end %>
+
   <%# <H2>Private island for rent by Tan</H2> + TAN'S AVATAR (CREATE CSS AVATAR COMPONENT) %>
 
   <p><%= @island.description %></p>

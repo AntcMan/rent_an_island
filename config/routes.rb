@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'islands/new'
+  get 'islands/edit'
+  get 'islands/show'
   devise_for :users
   root to: "pages#home"
   # root to: "islands#index"

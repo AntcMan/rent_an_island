@@ -1,0 +1,9 @@
+<h1>Book your favourite island</h1>
+
+<div class="d-flex flex-row flex-wrap">
+<% @islands.each do |island| %>
+      <!-- Repeat the below column code for each listing -->
+      <%= render 'components/card', island: island %>
+      <!-- End of repeated column code -->
+<% end %>
+</div>

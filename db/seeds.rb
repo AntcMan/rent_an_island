@@ -9,19 +9,24 @@
 p "Removing islands and users..."
 Island.destroy_all
 User.destroy_all
-p "All islands removed ..."
+p "All islands and users removed ..."
+
+p "Creating users"
+
+#create a user and save to database
+names = %w(Anthony Shannaz Tan Johan)
+names.each do |name|
+  email = "#{name}@gmail.com"
+  User.create(email:, password: "password", first_name: name)
+end
 
 p "Creating 10 islands ..."
 10.times do |i|
   photo = URI.open("https://images.unsplash.com/photo-1502085671122-2d218cd434e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1526&q=80")
-  #create a user and save to database
-  person = (Faker::Fantasy::Tolkien.character)
-  email = "#{person.gsub(" ","_")}@gmail.com"
-  user = User.create(email:, password:"password")
-
   #create an island
-  suffixes = ["secondary home", "island", "coconuts", "resort", "retreat"]
-  name = "#{person}'s #{suffixes.sample}"
+  user = User.all.sample
+  suffixes = ["quit place", "island", "resort", "retreat"]
+  name = "#{user.first_name.lowercase}'s #{suffixes.sample}"
   capacity = (10..100).to_a.sample
   description = Faker::Lorem.sentences(number: 5).join(" ")
   location = Faker::Fantasy::Tolkien.location

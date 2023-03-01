@@ -5,5 +5,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   devise_for :users
   root "islands#index"
-  resources :islands
+  resources :islands do
+    resources :bookings, only: [:new, :create]
+  end
+  resources :bookings, only: [:show]
 end

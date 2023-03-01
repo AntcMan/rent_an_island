@@ -25,8 +25,8 @@ p "Creating 10 islands ..."
   photo = URI.open("https://images.unsplash.com/photo-1502085671122-2d218cd434e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1526&q=80")
   #create an island
   user = User.all.sample
-  suffixes = ["quit place", "island", "resort", "retreat"]
-  name = "#{user.first_name.lowercase}'s #{suffixes.sample}"
+  suffixes = ["quite place", "island", "resort", "retreat"]
+  name = "#{user.first_name}'s #{suffixes.sample}"
   capacity = (10..100).to_a.sample
   description = Faker::Lorem.sentences(number: 5).join(" ")
   location = Faker::Fantasy::Tolkien.location

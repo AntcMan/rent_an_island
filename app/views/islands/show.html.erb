@@ -1,27 +1,31 @@
 <div class="container">
   <h1>Details about this beautiful island</h1>
-  <%= cl_image_tag @island.photo.key, height: 300, crop: :fill %>
+  <p><strong>Location:</strong> <%= @island.location %></p>
+  <%= cl_image_tag @island.photo.key, height: 250, crop: :fill %>
   <% if @island.photo.attached? %>
   <% end %>
 
   <h2>Private island for rent by <%= @island.user.first_name %> </h2>
   <%# Still need to add user AVATAR (CREATE CSS AVATAR COMPONENT) %>
 
-  <h3>Location: <%= @island.location %></h3>
-  <%= @island.description %></p>
-  <p>Price : <%= @island.price %></p>
-  <p>Capacity: <%= @island.capacity %> persons</p>
-  <p><%= @island.availability %></p>
+  <div class="island_detail">
+    <div class="island_description">
+      <%= @island.description %></p>
+      <p><strong>Price:</strong> $<%= @island.price %></p>
+      <p><strong>Capacity (# of guests):</strong> <%= @island.capacity %> persons</p>
+      <p><%= @island.availability %></p>
+    </div>
 
-  <h3>Book this island</h3>
-  <p><%= simple_form_for [@island, @booking = Booking.new] do |f| %>
-    <%= f.input :check_in_date %>
-    <%= f.input :check_out_date %>
-    <%= f.submit "Book this island", class: "btn btn-primary" %>
-  <% end %>
-  </p>
-
-  <p><%= link_to "view all islands", islands_path, class: 'btn btn-primary' %></p>
+    <div class="booking_form">
+      <h3>Book this island</h3>
+      <p><%= simple_form_for [@island, @booking = Booking.new] do |f| %>
+        <%= f.input :check_in_date %>
+        <%= f.input :check_out_date %>
+        <%= f.submit "Reserve", class: "btn btn-success" %>
+      <% end %> </p>
+    </div>
+  </div>
+  <p><%= link_to "View all islands", islands_path, class: 'btn btn-primary' %></p>
 </div>
 
-<%= link_to "Edit your listing", island_path, class: 'btn btn-warning' %>
+<%# <%= link_to "Edit your listing", island_path, class: 'btn btn-warning' %>

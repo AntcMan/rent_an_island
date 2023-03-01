@@ -22,7 +22,7 @@ end
 
 p "Creating 10 islands ..."
 10.times do |i|
-  photo = URI.open("https://images.unsplash.com/photo-1502085671122-2d218cd434e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1526&q=80")
+  photo = URI.open("https://source.unsplash.com/random/1920x1080/?island")
   user = User.all.sample
   suffixes = ["quite place", "island", "resort", "retreat"]
   name = "#{user.first_name}'s #{suffixes.sample}"

@@ -36,8 +36,8 @@ p "Creating 10 islands ..."
     description: description,
     location: location,
     price: price,
-    user_id: user.id
-    # availability: [true, false].sample
+    user_id: user.id,
+    availability: ([true, false].sample)
   }
 
   new_island = Island.new(attributes_hash)

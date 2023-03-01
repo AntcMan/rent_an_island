@@ -11,12 +11,14 @@
   </head>
 
   <body>
-  <%= render '/components/navbar' %>
-  <div class="container">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+  <div style="min-height: 100vh">
+    <%= render '/components/navbar' %>
+    <div class="container">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </div>
   </div>
-    <%= render 'components/footer' %>
+  <%= render 'components/footer' %>
   </body>
 </html>

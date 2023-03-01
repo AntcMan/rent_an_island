@@ -1,0 +1,15 @@
+<h1>Your booking history</h1>
+<p>Hello <%= @user.first_name %>, these are the islands you've booked</p>
+<h4>Booking history</h4>
+<% if @bookings.empty? %>
+  <p>You have no current bookings</p>
+<% else %>
+  <% @bookings.each do |booking| %>
+    <p>
+    On <%= booking.created_at %>, you've booked <%= booking.island.name %>
+    <%= link_to "Cancel booking", booking_path(booking),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel this booking ?"},
+    class: "btn btn-warning" %>
+    </p>
+  <% end %>
+<% end %>

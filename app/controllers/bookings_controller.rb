@@ -4,6 +4,11 @@ class BookingsController < ApplicationController
     # @new = Booking.new()
   end
 
+  def index
+    @user = current_user
+    @bookings = Booking.where(user_id: @user.id)
+  end
+
   def show
     @booking = Booking.find(params[:id])
   end
@@ -24,6 +29,12 @@ class BookingsController < ApplicationController
   end
 
   def edit
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to users_bookings_path, status: :see_other
   end
 
   private

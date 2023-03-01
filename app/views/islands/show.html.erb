@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Details about this beautiful island</h1>
-  <p><strong>Location:</strong> <%= @island.location %></p>
+  <p><strong>Location:</strong> <%= @island.location %> | <strong>Host:</strong> <%= @island.user.first_name %> Developer</p>
   <%= cl_image_tag @island.photo.key, height: 250, crop: :fill %>
   <% if @island.photo.attached? %>
   <% end %>

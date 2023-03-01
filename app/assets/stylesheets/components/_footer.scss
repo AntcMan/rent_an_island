@@ -4,8 +4,16 @@
   background-color: #eeeeee;
   color: black;
   font-size: 14px;
-  text-align: center;
   padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer {
+  clear: both;
+  position: relative;
+  margin-top: -200px;
 }
 
 .bg .row {

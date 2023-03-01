@@ -1,17 +1,25 @@
 <div class="container">
-  <h1><%= @island.name %></h1>
-  <h3><%= @island.location %></h3>
-
+  <h1>Details about this beautiful island</h1>
   <%= cl_image_tag @island.photo.key, height: 300, crop: :fill %>
   <% if @island.photo.attached? %>
   <% end %>
 
-  <%# <H2>Private island for rent by Tan</H2> + TAN'S AVATAR (CREATE CSS AVATAR COMPONENT) %>
+  <h2>Private island for rent by <%= @island.user.first_name %> </h2>
+  <%# Still need to add user AVATAR (CREATE CSS AVATAR COMPONENT) %>
 
-  <p><%= @island.description %></p>
-  <p><%= @island.price %></p>
-  <p><%= @island.capacity %></p>
+  <h3>Location: <%= @island.location %></h3>
+  <%= @island.description %></p>
+  <p>Price : <%= @island.price %></p>
+  <p>Capacity: <%= @island.capacity %> persons</p>
   <p><%= @island.availability %></p>
+
+  <h3>Book this island</h3>
+  <p><%= simple_form_for [@island, @booking = Booking.new] do |f| %>
+    <%= f.input :check_in_date %>
+    <%= f.input :check_out_date %>
+    <%= f.submit "Book this island", class: "btn btn-primary" %>
+  <% end %>
+  </p>
 
   <p><%= link_to "view all islands", islands_path, class: 'btn btn-primary' %></p>
 </div>

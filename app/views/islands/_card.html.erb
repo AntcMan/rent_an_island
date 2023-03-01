@@ -15,6 +15,6 @@
     <h5 class="card-title mb-2 h-50"><%= island.name %></h5>
     <p class="card-text mb-2">Availability</p>
     <h6 class="card-subtitle mb-0 font-weight-bold"><%= island.price %> AUD / day</h6>
-    <%= link_to "Book now", root_path, class:"btn btn-primary d-block", style: "margin: 10px;"%>
+    <%= link_to "Book now", island_path(island.id), class:"btn btn-primary d-block", style: "margin: 10px;"%>
   </div>
 </div>

@@ -5,7 +5,7 @@
   <% if @island.photo.attached? %>
   <% end %>
 
-  <h2>Private island for rent by <%= @island.user.first_name %> </h2>
+  <h4>Private island for rent by <%= @island.user.first_name %> </h4>
   <%# Still need to add user AVATAR (CREATE CSS AVATAR COMPONENT) %>
 
   <div class="island_detail">
@@ -25,7 +25,9 @@
       <% end %> </p>
     </div>
   </div>
-  <p><%= link_to "View all islands", islands_path, class: 'btn btn-primary' %></p>
+  <div class="btn_view">
+    <p><%= link_to "View all islands", islands_path, class: 'btn btn-primary' %></p>
+  </div>
 </div>
 
 <%# <%= link_to "Edit your listing", island_path, class: 'btn btn-warning' %>

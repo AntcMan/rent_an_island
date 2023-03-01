@@ -1,0 +1,30 @@
+.island_detail {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.island_description {
+  margin-top: 20px;
+  flex-basis: 60%;
+  padding-right: 20px;
+  border-top: 1px solid #dcd8d8;
+  border-bottom: 1px solid #dcd8d8;
+  margin-right: 30px;
+}
+
+.booking_form {
+  flex-basis: 40%;
+  margin-top: 20px;
+  border: 1px solid #dcd8d8;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.btn_view {
+  padding-top: 15px;
+}
+
+.btn-primary {
+  background: white;
+  color: #2a6efd;
+}

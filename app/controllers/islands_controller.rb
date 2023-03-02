@@ -1,6 +1,11 @@
 class IslandsController < ApplicationController
   def index
-    @islands = Island.all
+    if params[:query].present?
+      @islands = Island.search_by_parameters(params[:query])
+    else
+      @islands = Island.all
+    end
+    
     # @markers = @islands.geocoded.map do |island|
     #   {
     #     lat: island.latitude,

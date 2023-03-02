@@ -1,4 +1,16 @@
+
 <h1>Book your next island getaway</h1>
+
+  <%= form_with url: islands_path, method: :get, class: "d-flex flex-row-reverse" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "...your perfect getaway island start here",
+      style: "font-size: 1.5rem;"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+
 <div class="container-center">
   <div class="d-flex flex-row flex-wrap">
   <% @islands.each do |island| %>

@@ -22,9 +22,9 @@ class BookingsController < ApplicationController
       # flash.now[:notice] = 'Booking done'
       redirect_to booking_path(booking)
     else
-      # flash.now[:alert] = 'Booking not valid'
+      flash.now[:alert] = 'Booking not valid'
       # redirect_to island_path(Island.find(params[:island_id]))
-      redirect_to new_user_session_path
+      # redirect_to new_user_session_path
     end
   end
 

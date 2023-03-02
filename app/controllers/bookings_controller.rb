@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   def new
-    # @island = Island.find(params[:island_id])
-    # @new = Booking.new()
+    @island = Island.find(params[:island_id])
+    @new = Booking.new()
   end
 
   def index
@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
   def create
     booking = Booking.new(booking_params)
     booking.island = Island.find(params[:island_id])
-    # booking.total_price = (params(:check_out_date) - params(:check_in_date)) * booking.island.price
+    # booking.total_price = (params(:check_out_date) - params(:check_in_date) /1.day) * booking.island.price
     booking.user = current_user
     if booking.save
       # flash.now[:notice] = 'Booking done'
@@ -34,8 +34,7 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
-    # redirect_to users_bookings_path, status: :see_other
-    redirect_to islands_path, status: :see_other
+    redirect_to users_bookings_path, status: :see_other
   end
 
   private

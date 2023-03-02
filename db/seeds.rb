@@ -28,7 +28,7 @@ p "Creating 10 islands ..."
   name = "#{user.first_name}'s #{suffixes.sample}"
   capacity = (10..100).to_a.sample
   description = Faker::Lorem.sentences(number: 5).join(" ")
-  location = Faker::Fantasy::Tolkien.location
+  location = Faker::Address.state
   price = (10000..100000).to_a.sample
   attributes_hash = {
     name: name,

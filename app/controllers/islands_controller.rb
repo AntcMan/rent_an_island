@@ -1,6 +1,13 @@
 class IslandsController < ApplicationController
   def index
     @islands = Island.all
+    @markers = @islands.geocoded.map do |island|
+      {
+        lat: island.latitude,
+        lng: island.longitude,
+        # infoWindow: render_to_string(partial: "info_window", locals: { island: island })
+      }
+    end
   end
 
   def new
@@ -23,6 +30,10 @@ class IslandsController < ApplicationController
 
   def show
     @island = Island.find(params[:id])
+    @markers = [{
+        lat: @island.latitude,
+        lng: @island.longitude
+      }]
   end
 
   def update

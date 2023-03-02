@@ -13,16 +13,24 @@
             <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "My bookings", users_bookings_path, class: "nav-link" %>
+          <% if current_user %>
+            <li><%= link_to "My bookings", users_bookings_path, class: "nav-link" %></li>
+             <%= link_to "Log out", destroy_user_session_path, class: "nav-link", method: :delete %>
+            <% else %>
+              <li><%= link_to "Log in", new_user_session_path, class: "nav-link" %></li>
+              <li><%= link_to "Sign up", new_user_registration_path, class: "nav-link" %></li>
+            <% end  %>
           </li>
+
           <li class="nav-item dropdown">
             <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://static.vecteezy.com/system/resources/previews/006/487/917/original/man-avatar-icon-free-vector.jpg" />
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <% if current_user %>
-                <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-              <% else %>
-                <%= link_to "Sign in", new_user_session_path, class: "dropdown-item" %>
-              <% end %>
+              <%# if current_user %>
+                <%# button_to "Sign out", destroy_user_session_path, class: "nav-link", method: :delete %>
+              <%# else %>
+                <%# link_to "Sign in", new_user_session_path, class: "dropdown-item" %>
+                <%# link_to "Sign up", new_user_registration_path, class: "dropdown-item" %>
+              <%# end %>
               <%# <a class="dropdown-item" href="#">Another action</a>
               <a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a> %>
             </div>

@@ -13,16 +13,20 @@
       <%= @island.description %></p>
       <p><strong>Price:</strong> $<%= @island.price %></p>
       <p><strong>Capacity (# of guests):</strong> <%= @island.capacity %> persons</p>
-      <p><%= @island.availability %></p>
+      <p><%# @island.availability %></p>
     </div>
 
     <div class="booking_form">
       <h3>Book this island</h3>
-      <p><%= simple_form_for [@island, @booking = Booking.new] do |f| %>
-        <%= f.input :check_in_date %>
-        <%= f.input :check_out_date %>
-        <%= f.submit "Reserve", class: "btn btn-success" %>
-      <% end %> </p>
+      <div id='island-booking-dates' data-unavailable="<%= @island.unavailable_dates.to_json %>">
+      <p>
+        <%= simple_form_for [@island, @booking = Booking.new], data: { controller: 'flatpickr' } do |f| %>
+          <%= f.input :check_in_date, as: :string, input_html: { data: { flatpickr_target: "checkInDate" } } %>
+          <%= f.input :check_out_date, as: :string, input_html: { data: { flatpickr_target: "checkOutDate" }, id: "checkOutDate" } %>
+          <%= f.submit "Reserve", class: "btn btn-success" %>
+        <% end %>
+      </p>
+      </div>
     </div>
   </div>
   <div class="btn_view">

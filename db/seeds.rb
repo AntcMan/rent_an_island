@@ -40,7 +40,7 @@ p "Creating 10 islands ..."
     location: location,
     price: price,
     user_id: user.id,
-    availability: ([true, false].sample)
+    # availability: ([true, false].sample)
   }
 
   new_island = Island.new(attributes_hash)
@@ -50,3 +50,5 @@ p "Creating 10 islands ..."
 end
 
 p "10 islands created"
+
+rails g availabilityValidator

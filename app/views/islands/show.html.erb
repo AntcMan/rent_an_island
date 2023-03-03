@@ -19,9 +19,10 @@
       <h3>Book this island</h3>
       <div id='island-booking-dates' data-unavailable="<%= @island.unavailable_dates.to_json %>">
       <p>
-        <%= simple_form_for [@island, @booking = Booking.new], data: { controller: 'flatpickr' } do |f| %>
+        <%= simple_form_for [@island, @booking = Booking.new], data: { controller: 'flatpickr', flatpickr_day_rate_value: @island.price } do |f| %>
           <%= f.input :check_in_date, as: :string, input_html: { data: { flatpickr_target: "checkInDate" } } %>
           <%= f.input :check_out_date, as: :string, input_html: { data: { flatpickr_target: "checkOutDate" }, id: "checkOutDate" } %>
+          <div class="total_price">Total Price: $<span data-flatpickr-target="totalPrice"></span></div>
           <%= f.submit "Reserve", class: "btn btn-success" %>
         <% end %>
       </p>

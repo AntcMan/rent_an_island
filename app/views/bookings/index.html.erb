@@ -1,18 +1,23 @@
 <h1>Your booking history</h1>
 <p>Hello <%= @user.first_name %>, these are the islands you've booked</p>
-<h4>Booking history</h4>
-<% if @bookings.empty? %>
-  <p>You have no current bookings</p>
-<% else %>
-  <% @bookings.each do |booking| %>
-    <div class="card " style="height: 100px">
-      <%= booking.island.name %>
-      <p>From <%=  booking.check_in_date.strftime("%d/%m/%Y") %> until <%= booking.check_out_date.strftime("%d/%m/%Y")  %></p>
-      <p>Booking created on <%= booking.created_at.strftime("%d/%m/%Y") %></p>
-      <p>Total price: <%=  %>
-      <%= link_to "Cancel booking", booking_path(booking),
-      data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel this booking ?"},
-      class: "btn btn-warning" %>
-    </div>
+
+<div class="row">
+  <% if @bookings.empty? %>
+    <p>You have no current bookings</p>
+  <% else %>
+    <% @bookings.each do |booking| %>
+      <div class="col-lg-4 mb-2">
+        <%# MAYBE INSERT IMAGE OF ISLAND HERE? %>
+        <div class="card-body border p-3 bg-white border-radius: 2px">
+          <h5 class="card-title"><%= booking.island.name %></h5>
+          <p class="card-text">From <%= booking.check_in_date.strftime("%d/%m/%Y") %> until <%= booking.check_out_date.strftime("%d/%m/%Y") %></p>
+          <p class="card-text">Booking created on <%= booking.created_at.strftime("%d/%m/%Y") %></p>
+          <p class="card-text">Total price: <%= number_to_currency(booking.total_price, unit: "USD") %></p>
+          <%= link_to "Cancel booking", booking_path(booking),
+                data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel this booking?" },
+                class: "btn btn-warning" %>
+        </div>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>

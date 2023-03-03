@@ -1,24 +1,26 @@
-<div class="card h-100" style="width: 16rem; margin: 10px;">
-  <div class="card-img-top position-relative">
-   <% if island.photo.attached? %>
-   <%= cl_image_tag island.photo.key, width: 300, height: 200, crop: :fill %>
-   <% end %>
-    <%# <div class="bookmark">Bookmark</div> %>
-  </div>
-  <div class="card-body">
-    <div class="d-flex justify-content-between align-items-center mb-2">
-      <div class="location">
-      <%= island.location %>
-      </div>
-      <%# <span class="rating">Rating</span> %>
+<div class="card" style="width: 280px; height: 400px;">
+  <div class="w-100 h-100">
+    <div class="card-img-top position-relative">
+      <% if island.photo.attached? %>
+      <%= cl_image_tag island.photo.key, height: 200, crop: :fill %>
+      <% end %>
+      <%# <div class="bookmark">Bookmark</div> %>
     </div>
-    <h5 class="card-title mb-2 h-50"><%= island.name %></h5>
-    <%# <% if island.availability %>
-      <p class="card-text mb-2">Available</p>
-    <%# <% else %>
-      <%# <p class="card-text mb-2">Unavailable</p> %>
-    <%# <% end %>
-    <h6 class="card-subtitle mb-0 font-weight-bold">$<%= island.price %> AUD / day</h6>
-    <%= link_to "Book now", island_path(island.id), class:"btn btn-primary d-block", style: "margin: 10px;"%>
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <div class="location">
+          <%= island.location %>
+        </div>
+        <%# <span class="rating">Rating</span> %>
+      </div>
+      <h5 class="card-title mb-2 h-25"><%= island.name %></h5>
+      <%# <% if island.availability %>
+        <p class="card-text mb-2">Available</p>
+      <%# <% else %>
+        <%# <p class="card-text mb-2">Unavailable</p> %>
+      <%# <% end %>
+      <h6 class="card-subtitle mb-0 font-weight-bold">$<%= island.price %> AUD / day</h6>
+      <%= link_to "Book now", island_path(island.id), class:"btn btn-primary d-block", style: "margin: 10px;"%>
+    </div>
   </div>
 </div>

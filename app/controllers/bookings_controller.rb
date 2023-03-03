@@ -16,7 +16,6 @@ class BookingsController < ApplicationController
   def create
     booking = Booking.new(booking_params)
     booking.island = Island.find(params[:island_id])
-    # booking.total_price = (params(:check_out_date) - params(:check_in_date)) * booking.island.price
     booking.total_price = (booking.check_out_date - booking.check_in_date) * booking.island.price
     booking.user = current_user
     if booking.save

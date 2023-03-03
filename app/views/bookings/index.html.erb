@@ -5,11 +5,14 @@
   <p>You have no current bookings</p>
 <% else %>
   <% @bookings.each do |booking| %>
-    <p>
-    On <%= booking.created_at %>, you've booked <%= booking.island.name %>
-    <%= link_to "Cancel booking", booking_path(booking),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel this booking ?"},
-    class: "btn btn-warning" %>
-    </p>
+    <div class="card " style="height: 100px">
+      <%= booking.island.name %>
+      <p>From <%=  booking.check_in_date.strftime("%d/%m/%Y") %> until <%= booking.check_out_date.strftime("%d/%m/%Y")  %></p>
+      <p>Booking created on <%= booking.created_at.strftime("%d/%m/%Y") %></p>
+      <p>Total price: <%=  %>
+      <%= link_to "Cancel booking", booking_path(booking),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel this booking ?"},
+      class: "btn btn-warning" %>
+    </div>
   <% end %>
 <% end %>

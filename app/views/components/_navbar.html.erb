@@ -7,6 +7,14 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
+    <div class="search-container">
+      <%= form_with url: islands_path, method: :get, class: "search" do %>
+        <%= text_field_tag :query,
+        params[:query],
+        placeholder: "Find your island ... " %>
+      <% end %>
+    </div>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
           <li class="nav-item active">

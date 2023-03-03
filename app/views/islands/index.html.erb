@@ -1,20 +1,12 @@
 
 <h1>Book your next island getaway</h1>
 
-<%= form_with url: islands_path, method: :get, class: "d-flex flex-row-reverse" do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "...your perfect getaway island start here",
-    style: "font-size: 1.5rem;"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
-
 <div class="row">
   <% @islands.each do |island| %>
-    <div class="col-xl-3 col-lg-4 col col-md-6 col-sm-12 mb-4">
+    <div  class="d-flex col-xl-3 col-lg-4 col-md-6 mb-3">
+      <!-- Repeat the below column code for each listing -->
       <%= render 'card', island: island %>
+      <!-- End of repeated column code -->
     </div>
   <% end %>
 </div>

@@ -1,9 +1,8 @@
-<h1>Your booking is confirmed!</h1>
-<h4>Details</h4>
-<p>
-Island <%= @booking.island.name %> is booked by <%= @booking.user.first_name %>
-</p>
-<p>
-<%= link_to "All my bookings", users_bookings_path, class: "btn btn-primary" %>
-<p>Total price: $<%= @booking.total_price %></p>
-</p>
+<div class="container">
+  <h1>Your booking is confirmed! 🎉 </h1>
+        <div class="card_booking">
+          <p>Island <%= @booking.island.name %> is booked by <%= @booking.user.first_name %></p>
+          <p>Total price: $<%= @booking.total_price %></p>
+          <p><%= link_to "See all my bookings", users_bookings_path, class: "btn btn-primary" %></p>
+      </div>
+</div>

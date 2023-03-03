@@ -1,11 +1,13 @@
 class IslandsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     if params[:query].present?
       @islands = Island.search_by_parameters(params[:query])
     else
       @islands = Island.all
     end
-    
+
     # @markers = @islands.geocoded.map do |island|
     #   {
     #     lat: island.latitude,

@@ -21,7 +21,7 @@ names.each do |name|
 end
 
 p "Creating 10 islands ..."
-10.times do |i|
+20.times do |i|
   photo = URI.open("https://source.unsplash.com/random/1920x1080/?island")
   user = User.all.sample
   suffixes = ["Quiet Cove", "Paradise Island", "Secluded Resort", "Tropical Retreat", "Exotic Oasis", "Sandy Shores", "Beachside Bungalow", "Isolated Haven", "Island Escape", "Remote Hideaway"]
@@ -47,4 +47,4 @@ p "Creating 10 islands ..."
   puts "created island"
 end
 
-p "10 islands created"
+p "20 islands created"

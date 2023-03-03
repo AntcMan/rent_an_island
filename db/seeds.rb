@@ -48,5 +48,3 @@ p "Creating 10 islands ..."
 end
 
 p "10 islands created"
-
-rails g availabilityValidator
